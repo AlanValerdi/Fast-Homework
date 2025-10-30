@@ -3,7 +3,7 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 async def hello(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    print(f"Comando recibido: {update.effective_user.first_name}")
+    print(f"Command fetched, by: {update.effective_user.first_name}")
     await update.message.reply_text(f'Hello {update.effective_user.first_name}')
 
 app = ApplicationBuilder().token(telegram_token).build()
