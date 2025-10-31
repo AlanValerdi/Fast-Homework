@@ -2,6 +2,7 @@ import logging
 from config import telegram_token
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from services import Process_Prompt
 
 # Initialize logger
 logger = logging.getLogger(__name__)
@@ -20,11 +21,15 @@ async def Unknown_Command(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
 # Handlers 
 # Text based handlers 
-async def Get_Message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    Log_User_Call(update)
+async def Get_User_Prompt(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_Message = update.message.text
-
-    await update.message.reply_text(f"Did you perhaps said: {user_Message}")
+    try:
+        response = await Process_Prompt(user_Message)
+        await update.message.reply_text(f"Info proccessed correctly")
+        logger.info(f"Handler called correctly result: {response}")
+    except Exception as e:
+        logger.error(f"Error in handler {e}")
+        raise
     
-
+    
 # Command based handlers 
