@@ -1,6 +1,6 @@
 # Fast-Homework
 
-Got bored of doing homework that doesn't has a purpose other than being reviewed without any interest + not being relevant, I did automatized this task by using a **Telegram bot** that use **Google Gemini AI** and a **docx Template**. 
+Tired of doing homework that serves no real purpose other than being irrelevant, reviewed and graded without genuine interest, I automated this task using a **Telegram bot** powered by **Google Gemini AI** and a **docx Template**.
 
 ---
 
