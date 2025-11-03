@@ -6,7 +6,7 @@ Tired of doing homework that serves no real purpose other than being irrelevant,
 
 ## TODO: 
 - Fix spaces created by default when docx is created
-- Use user entries in context 
+- Use user entries in context File
 - Automatically delete docxs created to save resources 
 
 ---
