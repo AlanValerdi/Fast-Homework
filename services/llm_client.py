@@ -1,5 +1,6 @@
 import logging
 import asyncio
+import json
 from config import gemini_api_key
 from google import genai
 
@@ -25,7 +26,7 @@ You will get a task of what you must do, once you satisfied the task, you are go
 Always return a JSON response. Respond in Spanish by default, unless the user explicitly requests English.
 """
 
-# GetTask will get the message from the Telegram chat 
+# Get_prompt will call the geminai api 
 async def Process_Prompt(message: str):
     try:
         loop = asyncio.get_event_loop()
@@ -70,16 +71,21 @@ async def Process_Prompt(message: str):
                                     "description": "Here will be the bibliography of the research, it will be formatted in `APA 7ma edicion`"
                                 }
                             }
-
                         }
                     }
                 }
             )
         )
-        return response
+        # Response as a JSON string
+        response_text = response.text
+        # Parse the JSON string into a Python dictionary
+        response_json = json.loads(response_text)
+        
+        return response_json
     except Exception as e:
         logger.error(f"Api error {e}")
         raise
-        
-        
+
+# Process_Prompt will convert response into a valid data object
+
         
