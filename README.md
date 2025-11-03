@@ -4,6 +4,13 @@ Tired of doing homework that serves no real purpose other than being irrelevant,
 
 ---
 
+## TODO: 
+- Fix spaces created by default when docx is created
+- Use user entries in context 
+- Automatically delete docxs created to save resources 
+
+---
+
 ## Tech Stack
 - **Python 3.x**
 - **python-telegram-bot** - Telegram bot framework
